@@ -1,0 +1,38 @@
+<div class="row">
+    <h2 class="text-center">Mantenimiento de empresas</h2>
+</div>
+<br><br><br>
+
+<div class="row">
+  <div class="col-sm-5 px-2">
+    <br><br>
+    <app-empresa-form></app-empresa-form>
+  </div>
+  <div class="col-sm-7 px-5" >
+    <br><br>
+    <table class="table table-light">
+      <thead class="thead-light">
+        <tr>
+          <th>#</th>
+          <th>Nombre</th>
+          <th>Descripcion</th>
+          <th>Telefono</th>
+          <th>Accion</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let empresa of EmpresaService.list | async as Empresa">
+          <td>{{ empresa.empresaId }}</td>
+          <td>{{ empresa.nombre }}</td>
+          <td>{{ empresa.descripcion }}</td>
+          <td>{{ empresa.telefono }}</td>
+          <td>
+            <a style="margin: 8px; cursor: pointer;" (click)="editar(empresa)"><i class="fa fa-scissors" aria-hidden="true"></i></a>
+            <a style="margin: 8px; cursor: pointer;" (click)="eliminar(empresa.empresaId)"><i class="fa fa-trash-o" aria-hidden="true"></i></a>
+          </td>
+          <td></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

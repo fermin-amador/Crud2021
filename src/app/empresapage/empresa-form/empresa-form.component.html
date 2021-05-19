@@ -1,0 +1,35 @@
+<div class="card">
+  <div class="card-header text-center">
+   <b>Formulario Empresa</b>
+  </div>
+  <div class="card-body">
+<form [formGroup]="empresaform" (ngSubmit)="guardar()">
+  <div class="form-group">
+    <input type="hidden" formControlName="empresaId" />
+    <label for="nombre">Nombre</label>
+    <input id="nombre" formControlName="nombre" class="form-control form-control-sm" type="text" />
+  </div>
+  <div *ngIf="field.nombre.touched && field.nombre.invalid">
+    <div class="validation">Nombre es requerido.</div>
+  </div>
+  <div class="form-group">
+    <label for="descripcion">Descripcion</label>
+    <input id="descripcion" formControlName="descripcion" class="form-control form-control-sm" type="text" />
+  </div>
+  <div *ngIf="field.descripcion.touched && field.descripcion.invalid">
+    <div class="validation">Descripcion es requerido.</div>
+  </div>
+  <div class="form-group">
+    <label for="telefono">Telefono</label>
+    <input id="telefono" formControlName="telefono" class="form-control form-control-sm" type="text" />
+  </div>
+  <div *ngIf="field.telefono.touched && field.telefono.invalid">
+    <div class="validation">Telefono es requerido.</div>
+  </div>
+
+    <button class="btn btn-success btn-lg pl-4 mt-2" type="submit" [disabled]="empresaform.invalid">Guardar </button>
+    <button class="btn btn-warning btn-lg mt-2" type="button" style="float: right;" (click)="this.reset()">Resetear </button>
+
+</form>
+  </div>
+</div>
